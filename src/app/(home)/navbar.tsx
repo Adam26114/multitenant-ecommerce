@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
 import { data } from "@/lib/navbar-data";
+import { useRouter } from "next/router";
 
 const poppins = Poppins({
     subsets: ["latin"],
@@ -21,6 +22,7 @@ interface NavbarItemProps {
 }
 
 const NavbarItem = ({ href, children, isActive }: NavbarItemProps) => {
+    const router = useRouter();
     return (
         <Button
             variant="outline"
@@ -29,8 +31,9 @@ const NavbarItem = ({ href, children, isActive }: NavbarItemProps) => {
                 isActive &&
                     "bg-black text-white hover:bg-black hover:text-white"
             )}
+            onClick={() => router.push(href)}
         >
-            <Link href={href}>{children}</Link>
+            {children}
         </Button>
     );
 };
@@ -44,7 +47,6 @@ export const Navbar = () => {
                 href={data.headerMain.logoUrl}
                 className="pl-6 flex items-center gap-2"
             >
-                
                 <span
                     className={cn("text-3xl font-semibold", poppins.className)}
                 >

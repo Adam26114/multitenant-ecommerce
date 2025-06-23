@@ -1,3 +1,4 @@
+import React from "react";
 import { Award, Blocks, DollarSign, Home, MailCheck } from "lucide-react";
 
 export interface NavbarItem {
@@ -12,13 +13,13 @@ export interface HeaderMain {
     logoUrl: string;
 }
 
-export interface data {
+export interface NavbarData {
     headerMain: HeaderMain;
     navMain: NavbarItem[];
 }
 
 
-export const data: data = {
+export const data: NavbarData = {
     headerMain: {
         logoName: "FunRoad",
         logoImg: "/logo.png",
