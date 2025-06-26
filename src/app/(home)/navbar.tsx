@@ -2,13 +2,13 @@
 
 import Link from "next/link";
 import { Poppins } from "next/font/google";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
 import { data } from "@/lib/navbar-data";
-import { useRouter } from "next/router";
+
 
 const poppins = Poppins({
     subsets: ["latin"],
