@@ -1,6 +1,8 @@
-"use client";
+'use client';
 
-import { Button } from "@/components/ui/button";
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { Button } from '@/components/ui/button';
 import {
     Sidebar,
     SidebarContent,
@@ -11,20 +13,16 @@ import {
     SidebarMenu,
     SidebarMenuButton,
     SidebarMenuItem,
-} from "@/components/ui/sidebar";
-import { data, NavbarItem } from "@/lib/navbar-data";
-import { cn } from "@/lib/utils";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+} from '@/components/ui/sidebar';
+import { data, type NavbarItem } from '@/lib/navbar-data';
+import { cn } from '@/lib/utils';
 
 interface Props {
     items?: NavbarItem[];
 }
 
 export function AppSidebar({ items = data.navMain }: Props) {
-
     const pathname = usePathname();
-
 
     return (
         <Sidebar className="visible lg:hidden">
@@ -36,19 +34,17 @@ export function AppSidebar({ items = data.navMain }: Props) {
                     <SidebarGroupContent>
                         <SidebarMenu className="gap-0">
                             {items.map((item) => (
-                                <SidebarMenuItem key={item.url} >
+                                <SidebarMenuItem key={item.url}>
                                     <SidebarMenuButton
                                         asChild
-                                        className={cn("w-full hover:bg-pink-400 hover:text-black rounded-none", pathname === item.url && "bg-black text-white")}
+                                        className={cn(
+                                            'w-full hover:bg-pink-400 hover:text-black rounded-none',
+                                            pathname === item.url && 'bg-black text-white'
+                                        )}
                                         size="lg"
                                     >
-                                        <Link
-                                            href={item.url}
-                                            className=" items-center gap-2"
-                                        >
-                                            {item.icon && (
-                                                <item.icon className="w-4 h-4" />
-                                            )}
+                                        <Link href={item.url} className=" items-center gap-2">
+                                            {item.icon && <item.icon className="w-4 h-4" />}
                                             <span>{item.title}</span>
                                         </Link>
                                     </SidebarMenuButton>
