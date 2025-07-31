@@ -1,18 +1,16 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { Poppins } from "next/font/google";
-import { usePathname, useRouter } from "next/navigation";
-import { SidebarTrigger } from "@/components/ui/sidebar";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-
-import { data } from "@/lib/navbar-data";
-
+import { Poppins } from 'next/font/google';
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
+import { Button } from '@/components/ui/button';
+import { SidebarTrigger } from '@/components/ui/sidebar';
+import { data } from '@/lib/navbar-data';
+import { cn } from '@/lib/utils';
 
 const poppins = Poppins({
-    subsets: ["latin"],
-    weight: ["700"],
+    subsets: ['latin'],
+    weight: ['700'],
 });
 
 interface NavbarItemProps {
@@ -27,9 +25,8 @@ const NavbarItem = ({ href, children, isActive }: NavbarItemProps) => {
         <Button
             variant="outline"
             className={cn(
-                "bg-transparent hover:bg-transparent rounded-full hover:border-primary border-transparent px-3.5 text-lg",
-                isActive &&
-                    "bg-black text-white hover:bg-black hover:text-white"
+                'bg-transparent hover:bg-transparent rounded-full hover:border-primary border-transparent px-3.5 text-lg',
+                isActive && 'bg-black text-white hover:bg-black hover:text-white'
             )}
             onClick={() => router.push(href)}
         >
@@ -43,24 +40,15 @@ export const Navbar = () => {
 
     return (
         <nav className="h-20 flex border-b justify-between font-medium bg-white">
-            <Link
-                href={data.headerMain.logoUrl}
-                className="pl-6 flex items-center gap-2"
-            >
-                <span
-                    className={cn("text-3xl font-semibold", poppins.className)}
-                >
+            <Link href={data.headerMain.logoUrl} className="pl-6 flex items-center gap-2">
+                <span className={cn('text-3xl font-semibold', poppins.className)}>
                     {data.headerMain.logoName}
                 </span>
             </Link>
 
             <div className="items-center gap-4 hidden lg:flex">
                 {data.navMain.map((item) => (
-                    <NavbarItem
-                        key={item.url}
-                        href={item.url}
-                        isActive={pathname === item.url}
-                    >
+                    <NavbarItem key={item.url} href={item.url} isActive={pathname === item.url}>
                         {item.title}
                     </NavbarItem>
                 ))}

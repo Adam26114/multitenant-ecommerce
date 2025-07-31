@@ -1,5 +1,5 @@
-import React from "react";
-import { Award, Blocks, DollarSign, Home, MailCheck } from "lucide-react";
+import { Award, Blocks, DollarSign, Home, MailCheck } from 'lucide-react';
+import type React from 'react';
 
 export interface NavbarItem {
     url: string;
@@ -18,37 +18,36 @@ export interface NavbarData {
     navMain: NavbarItem[];
 }
 
-
 export const data: NavbarData = {
     headerMain: {
-        logoName: "FunRoad",
-        logoImg: "/logo.png",
-        logoUrl: "/", 
+        logoName: 'FunRoad',
+        logoImg: '/logo.png',
+        logoUrl: '/',
     },
     navMain: [
         {
-            url: "/",
-            title: "Home",
+            url: '/',
+            title: 'Home',
             icon: Home,
         },
         {
-            url: "/about",
-            title: "About",
+            url: '/about',
+            title: 'About',
             icon: Award,
         },
         {
-            url: "/features",
-            title: "Features",
+            url: '/features',
+            title: 'Features',
             icon: Blocks,
         },
         {
-            url: "/pricing",
-            title: "Pricing",
+            url: '/pricing',
+            title: 'Pricing',
             icon: DollarSign,
         },
         {
-            url: "/contact",
-            title: "Contact",
+            url: '/contact',
+            title: 'Contact',
             icon: MailCheck,
         },
     ],
